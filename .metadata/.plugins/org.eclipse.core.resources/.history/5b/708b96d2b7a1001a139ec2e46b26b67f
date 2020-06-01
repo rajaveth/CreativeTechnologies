@@ -1,0 +1,45 @@
+package stepDefinitions;
+
+import org.openqa.selenium.By;
+
+import containers.CustomerListContainer;
+import cucumber.api.java.en.When;
+
+public class CustomerListPage extends TestBase{
+	
+	
+	
+	@When("^the user click on '(.+)' button on customerlist homepage$")
+	public void the_user_click_on_Click_to_view_Details_button_on_customerlist_homepage(){
+		
+		
+	//	driver.findElement(CustomerListContainer.click_to_view_details_JeffBridges);
+		
+		/*switch (buttonName)
+		{
+
+			case "John_Smith":
+				driver.wait(1000);
+				ActionHandler.waitForJSandJQueryToLoad(BrowserDriver.BROWSER_TYPE);
+				ActionHandler.scrollElementIntoView(myAccountContainer.searchForStore);
+				ActionHandler.click(myAccountContainer.searchForStore);
+				ActionHandler.waitForJSandJQueryToLoad(BrowserDriver.BROWSER_TYPE);
+				break;
+
+			case "Search_US_Store":
+				ActionHandler.waitForJSandJQueryToLoad(BrowserDriver.BROWSER_TYPE);
+				ActionHandler.scrollElementIntoView(myAccountContainer.searchUSStoreBtn);
+				ActionHandler.click(myAccountContainer.searchUSStoreBtn);
+				ActionHandler.waitForJSandJQueryToLoad(BrowserDriver.BROWSER_TYPE);
+				break;
+
+			case "I_Like_To_Register":
+				ActionHandler.click(checkoutContainer.checkoutRegisterRadio);
+				break;
+			default:
+				Assert.fail("unknown button: " + buttonName);
+		}	*/
+		
+	}
+
+}

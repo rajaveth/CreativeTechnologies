@@ -1,0 +1,232 @@
+package stepDefinitions;
+
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Logger;
+
+
+import org.slf4j.LoggerFactory;
+import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import containers.HomepageContainer;
+import cucumber.api.java.en.And;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+import util.TestBase;
+import util.TestUtil;
+
+
+public class HomePageSteps extends TestBase {
+	private static final Logger log = Logger.getLogger(HomePageSteps.class.getName());
+	public static HomepageContainer homePageContainer ;
+	
+	@Given("^the user launch browser$")
+	public void the_user_launch_browser(){
+		
+		TestBase.initialization();	
+	}
+	
+	@When("^the user enter the url to the website$")
+	public void the_user_enter_the_url_to_the_website(){
+		
+		driver.get(prop.getProperty("url"));
+	}
+	
+	@Then("^the user land on homepage of the website$")
+	public void the_user_navigate_to_homepage_of_the_website() throws Exception{
+		
+		String title= driver.getTitle();
+		log.info(title);
+		Assert.assertEquals("Selenium Test", title);
+		driver.manage().timeouts().pageLoadTimeout(TestUtil.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
+		driver.close();
+	}
+	
+	@When("^the user get '(.+)' text on customerlist homepage$")
+	public void When_the_user_get_CustomerName_text_on_customerlist_homepage(String cusName){
+		
+		homePageContainer = new HomepageContainer();
+		WebElement cus ;
+
+		switch (cusName){
+
+		case "Jeff Bridges":
+			cus = homePageContainer.getName_JeffBridges();
+			String name = cus.getText();
+			Assert.assertTrue(cus.getText().contains("Jeff Bridges"));
+			log.info(name);
+				 		 
+			cus = homePageContainer.getCustomerDetails_JeffBridges();
+			String cusDetailsSecond = cus.getText();
+			Assert.assertTrue(cusDetailsSecond.contains("abcd@test.com"));
+			Assert.assertTrue(cusDetailsSecond.contains("0161 225 7632"));
+			log.info(cusDetailsSecond);
+			break;
+				 
+		case "John Smith":
+			cus = homePageContainer.getName_JohnSmith();
+			String cusListname2 = cus.getText();
+			Assert.assertTrue(cus.getText().contains("John Smith"));
+			log.info(cusListname2);
+				 
+			cus = homePageContainer.getCustomerDetails_JohnSmith();
+			String cusDetailsFirst = cus.getText();
+			Assert.assertTrue(cusDetailsFirst.contains("jsmith@test.com"));
+			Assert.assertTrue(cusDetailsFirst.contains("0208092029 "));
+			log.info(cusDetailsFirst);
+			break;
+				
+		case "Steve Jones":
+			cus = homePageContainer.getName_SteveJones();
+			String cusListName3 = cus.getText();
+			Assert.assertTrue(cus.getText().contains("Steve Jones"));
+			log.info(cusListName3);
+				 
+			cus = homePageContainer.getCustomerDetails_SteveJones();
+			String cusDetailsThree = cus.getText();
+			Assert.assertTrue(cusDetailsThree.contains("steven.jones@test.com"));
+			Assert.assertTrue(cusDetailsThree.contains("01403 215100 "));
+			log.info(cusDetailsThree);
+			break;				 
+		}
+	}
+	
+	@When("^the user click on '(.+)' button on customer list homepage$")
+	public void the_user_click_on_John_Smith_button_on_customerlist_homepage(String buttonName) throws Exception  {
+		
+		homePageContainer = new HomepageContainer();
+		
+		switch (buttonName){
+		
+		case "John Smith":
+			homePageContainer.clickOn_JohnSmith();
+			break;
+			
+		case "Jeff Bridges":
+			homePageContainer.clickOn_JeffBridge();
+			break;
+			
+		case "Steve Jones":
+			homePageContainer.clickOn_SteveJhones();
+			break;
+		}
+		driver.wait(2000);
+	}
+
+	@Then("^It should display the customer's '(.+)' to user$")
+	public void it_should_display_the_customer_s_personal_details_to_user(String buttonName) throws Exception{
+		
+		homePageContainer = new HomepageContainer();
+		
+		switch (buttonName){
+		
+		case "John Smith":
+			System.out.println(homePageContainer.customerDetailsPersonalDetails().getText());
+			break;
+			
+		case "Jeff Bridges":
+			System.out.println(homePageContainer.customerDetailsPersonalDetails().getText());
+			break;
+			
+		case "Steve Jones":
+			System.out.println(homePageContainer.customerDetailsPersonalDetails().getText());
+			break;
+		}
+		driver.wait(2000);
+		driver.close();
+		
+	//	System.out.println(homePageContainer.customerDetailsPersonalDetails().getText());
+/*
+		cus = homePageContainer.customerDetailsHeading();
+		String cusHeadingDetails = cus.getText();
+		System.out.println(cus.getText());
+		
+		cus = homePageContainer.customerDetailsPersonalDetails();
+		String cusPersonalDetails = cus.getText();
+		System.out.println(cus.getText());*/
+		
+	}
+	
+	//Then It should display the customer's sidepanel '<PersonalDetails>' to user
+	@Then("^It should display the customer sidepanel '(.+)' to user$")
+	public void it_should_display_the_customers_sidepanel_personal_details_to_user(String buttonName) throws Exception{
+		
+		homePageContainer = new HomepageContainer();
+		
+		switch (buttonName){
+		
+		case "John Smith":
+			System.out.println(homePageContainer.sidePanelCustomerName_JohnSmith.getText());
+			System.out.println(homePageContainer.sidePanelCustomerDetails_JohnSmith.getText());
+			break;
+			
+		case "Jeff Bridges":
+			System.out.println(homePageContainer.sidePanelCustomerName_JeffBridges.getText());
+			System.out.println(homePageContainer.sidePanelCustomerDetails_JeffBridges.getText());
+			break;
+			
+		case "Steve Jones":
+			System.out.println(homePageContainer.sidePanelCustomerName_SteveJones.getText());
+			System.out.println(homePageContainer.sidePanelCustomerDetails_SteveJones.getText());
+			break;
+		}
+		driver.close();
+		
+	//	System.out.println(homePageContainer.customerDetailsPersonalDetails().getText());
+/*
+		cus = homePageContainer.customerDetailsHeading();
+		String cusHeadingDetails = cus.getText();
+		System.out.println(cus.getText());
+		
+		cus = homePageContainer.customerDetailsPersonalDetails();
+		String cusPersonalDetails = cus.getText();
+		System.out.println(cus.getText());*/
+		
+	}
+	
+	@When("^the user verify the '(.+)' is enable on customer list homepage$")
+	public void the_user_click_on_John_Smith_button_on_customerlis_homepage(String buttonName) throws Exception  {
+		
+		homePageContainer = new HomepageContainer();
+		boolean enabled;
+		
+			switch (buttonName){
+			
+			case "John Smith":
+				enabled = homePageContainer.clickButton_JohnSmith();
+				if(!enabled){
+					log.info("Button is not enabled!!!");
+				}
+				
+				else{
+					log.info("Button is enabled!!!");
+				}
+				break;
+				
+			case "Jeff Bridges":
+				enabled = homePageContainer.clickButton_JeffBridge();
+				if(!enabled){
+					log.info("Button is not enabled!!!");
+				}else
+				{
+					log.info("Button is enabled!!!");
+				}
+				break;
+				
+			case "Steve Jones":
+				enabled = homePageContainer.clickButton_SteveJhones();
+				if(!enabled){
+					log.info("Button is not enabled!!!");
+				} else
+				{
+					log.info("Button is enabled!!!");
+				}
+				break;
+			}
+			driver.close();
+	}
+}

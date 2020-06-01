@@ -1,0 +1,69 @@
+package stepDefinitions;
+
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Logger;
+
+import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import containers.HomepageContainer;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+import util.TestBase;
+
+
+public class HomePageSteps extends TestBase {
+	
+	HomepageContainer homePageContainer = new HomepageContainer();
+	
+	@Given("^the user launch browser$")
+	public void the_user_launch_browser(){
+		
+		TestBase.initialization();
+		//System.setProperty("webdriver.chrome.driver", "//Users//raja//Downloads//chromedriver//");		// Specified the path of the Chrome browser
+	//	driver = new ChromeDriver();																	// Launch the Chrome browser
+	//	System.err.println("User launched the chrome browser!!!");
+		
+		// //Users//raja//Documents//CreativeTechnologyTechTest//Test//Properties//chromedriver//
+		//Test//Properties//chromedriver
+	}
+	
+	@When("^the user enter the url to the website$")
+	public void the_user_enter_the_url_to_the_website(){
+		
+		driver.get(prop.getProperty("url"));
+	//	driver.get("https://9a2cdb3e.azurewebsites.net/");		// Launch the browser and redirect to the URL
+	//	driver.manage().window().maximize();					// Maximizes the browser window
+	}
+	
+	@Then("^the user land on homepage of the website$")
+	public void the_user_navigate_to_homepage_of_the_website(){
+		
+		String title= driver.getTitle();
+		System.out.println(title);
+		Assert.assertEquals("Selenium Test", title);
+	}
+	
+	@When("^the user click on Click to view Details button on customerlist homepage$")
+	public void the_user_click_on_John_Smith_button_on_customerlist_homepage() throws Throwable {
+		
+	//	String title = homePageContainer.customerListPageTitle();
+	//	Assert.assertEquals("Selenium Test", title);
+		
+		homePageContainer.customerList_JeffBridges();
+		
+	//	driver.findElement(By.cssSelector("[data-test='1']")).click();
+	    
+	}
+
+	@Then("^It should display the customer's personal details to user$")
+	public void it_should_display_the_customer_s_personal_details_to_user() throws Throwable {
+	   
+	}
+
+
+
+}

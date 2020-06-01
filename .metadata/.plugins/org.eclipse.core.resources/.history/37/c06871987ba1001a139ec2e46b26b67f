@@ -1,0 +1,16 @@
+Feature: Customer access Creative technology HomePage
+
+Scenario: User access Creative technology HomePage
+
+Given the user launch browser
+When the user enter the url to the website
+Then the user land on homepage of the website
+
+Scenario: User get customer_list on Selenium test homepage
+
+Given the user launch browser
+And the user enter the url to the website
+#When the user 
+
+
+

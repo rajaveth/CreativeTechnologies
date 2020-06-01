@@ -1,0 +1,48 @@
+package stepDefinitions;
+
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Logger;
+
+import org.junit.Assert;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+
+
+public class HomePage {
+	
+	WebDriver driver;
+	
+	
+	@Given("^the user launch browser$")
+	public void the_user_launch_browser(){
+		
+		
+		System.setProperty("webdriver.chrome.driver", "//Users//raja//Downloads//chromedriver//");		// Specified the path of the Chrome browser
+		driver = new ChromeDriver();																	// Launch the Chrome browser
+		System.err.println("User launched the chrome browser!!!");
+		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+		
+		// //Users//raja//Documents//CreativeTechnologyTechTest//Test//Properties//chromedriver//
+		//Test//Properties//chromedriver
+	}
+	
+	@When("^the user enter the url to the website$")
+	public void the_user_enter_the_url_to_the_website(){
+		
+		driver.get("https://9a2cdb3e.azurewebsites.net/");		// Launch the browser and redirect to the URL
+		driver.manage().window().maximize();					// Maximizes the browser window
+	}
+	
+	@Then("^the user land on homepage of the website$")
+	public void the_user_navigate_to_homepage_of_the_website(){
+		
+		String title= driver.getTitle();
+		System.out.println(title);
+		Assert.assertEquals("Selenium Test", title);
+	}
+
+}

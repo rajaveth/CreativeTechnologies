@@ -1,0 +1,122 @@
+package containers;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
+
+import util.TestBase;
+
+public class HomepageContainer extends TestBase {
+	
+	public HomepageContainer(){
+		PageFactory.initElements(driver, this);
+	}
+	
+	// Locators for Side panel customer names (customer name)
+	@FindBy(how = How.CSS, using = "#root > div > div > div.col-md-3 > div:nth-child(1) > div.panel-heading > h3")
+	public static WebElement sidePanelCustomerName_JohnSmith;
+	
+	@FindBy(how = How.CSS, using = "#root > div > div > div.col-md-3 > div:nth-child(2) > div.panel-heading > h3")
+	public static WebElement sidePanelCustomerName_JeffBridges;
+	
+	@FindBy(how = How.CSS, using = "#root > div > div > div.col-md-3 > div:nth-child(3) > div.panel-heading > h3")
+	public static WebElement sidePanelCustomerName_SteveJones;
+	
+	
+	// Locators for Side panel customer details (email id & phone number)
+	@FindBy(how = How.CSS, using = "#root > div > div > div.col-md-3 > div:nth-child(1) > div.panel-body")
+	public WebElement sidePanelCustomerDetails_JohnSmith;
+	
+	@FindBy(how = How.CSS, using = "#root > div > div > div.col-md-3 > div:nth-child(2) > div.panel-body")
+	public WebElement sidePanelCustomerDetails_JeffBridges;
+	
+	@FindBy(how = How.CSS, using = "#root > div > div > div.col-md-3 > div:nth-child(3) > div.panel-body")
+	public WebElement sidePanelCustomerDetails_SteveJones;
+	
+	
+	//	Locators for Side panel buttons (click to view details) 
+	@FindBy(how = How.CSS, using = "[data-test='1']")
+	public WebElement click_to_view_details_JohnSmith;
+	
+	@FindBy(how = How.CSS, using = "[data-test='2']")
+	public WebElement click_to_view_details_JeffBridges;
+	
+	@FindBy(how = How.CSS, using = "[data-test='3']")
+	public WebElement click_to_view_details_SteveJones;
+	
+	
+	//	Locators for middle panel heading (customer name)
+	@FindBy(how = How.CSS, using = "#root > div > div > div.col-md-6 > div > div > div.panel-heading > h3")
+	public WebElement customerDetails_panel_heading_title;
+	
+	
+	//	Locators for middle panel body (customer personal details)								
+	@FindBy(how = How.CSS, using = "#root > div > div > div.col-md-6 > div > div > div.panel-body")
+	public WebElement customerDetails_panel_body;
+	
+	
+	
+	
+	// Actions
+	
+	public static WebElement getName_JohnSmith(){
+		return sidePanelCustomerName_JohnSmith;
+	}
+	
+	public static WebElement getName_JeffBridges(){
+		return sidePanelCustomerName_JeffBridges;
+	}
+	
+	public static WebElement getName_SteveJones(){
+		return sidePanelCustomerName_SteveJones;
+	}
+	
+	
+	public WebElement getCustomerDetails_JohnSmith(){
+		return sidePanelCustomerDetails_JohnSmith;
+	}
+	
+	public WebElement getCustomerDetails_JeffBridges(){
+		return sidePanelCustomerDetails_JeffBridges;
+	}
+	
+	public WebElement getCustomerDetails_SteveJones(){
+		return sidePanelCustomerDetails_SteveJones;
+	}
+	
+	
+	public void clickOn_JohnSmith(){
+		click_to_view_details_JohnSmith.click();
+	}
+
+	public void clickOn_JeffBridge(){
+		click_to_view_details_JeffBridges.click();
+	}
+	
+	public void clickOn_SteveJhones(){
+		click_to_view_details_SteveJones.click();
+	}
+	
+	public WebElement customerDetailsHeading(){
+		return customerDetails_panel_heading_title;
+	}
+	
+	public WebElement customerDetailsPersonalDetails(){
+		return customerDetails_panel_body;
+	}
+	
+	public boolean clickButton_JohnSmith(){
+		return click_to_view_details_JohnSmith.isEnabled();
+	}
+
+	public boolean clickButton_JeffBridge(){
+		return click_to_view_details_JeffBridges.isEnabled();
+	}
+	
+	public boolean clickButton_SteveJhones(){
+		return click_to_view_details_SteveJones.isEnabled();
+	}
+
+}

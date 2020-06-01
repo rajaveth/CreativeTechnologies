@@ -1,0 +1,58 @@
+package containers;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
+
+import util.TestBase;
+
+public class HomepageContainer extends TestBase {
+	
+	public HomepageContainer(){
+		PageFactory.initElements(driver, this);
+	}
+	
+	/*@FindBy(how = How.CSS, using = "[data-test='1']")
+	public static WebElement click_to_view_details_JohnSmith;
+	
+	@FindBy(how = How.CSS, using = "[data-test='2']")
+	public static WebElement click_to_view_details_JeffBridges;
+	
+	@FindBy(how = How.CSS, using = "[data-test='3']")
+	public static WebElement click_to_view_details_SteveJones;*/
+	
+	//@FindBy(how = How.XPATH, using = "//button[@ytestid='btn16']")
+	//public WebElement printingSuccessYesBtn;
+	
+	@FindBy(how = How.XPATH, using = "//*[@id='root']/div/div/div[1]/div[3]/div[2]/button")
+	private WebElement printingSuccessBtn;
+	
+	
+	@FindBy(how = How.CSS, using = "[data-test='3']")
+	public WebElement click_view_details_JeffBridges;
+	
+	
+	@FindBy(css = "#root > div > div > div.col-md-3 > div:nth-child(2) > div.panel-body > button")
+	WebElement clickButton;
+	
+	
+	@FindBy(css = "[data-test='2']")
+	WebElement click_to_view_details_JeffBridges;
+	
+	@FindBy(css = "[data-test='3']")
+	WebElement click_to_view_details_SteveJones;
+	
+	// Actions
+	
+	public void clickOn_SteveJhones(){
+		printingSuccessBtn.click();
+	}
+	
+	public void clickOn_JeffBridge(){
+		click_view_details_JeffBridges.submit();
+	}
+	
+
+}

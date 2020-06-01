@@ -1,0 +1,125 @@
+package stepDefinitions;
+
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Logger;
+
+import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import containers.HomepageContainer;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+import util.TestBase;
+import util.TestUtil;
+
+
+public class HomePageSteps extends TestBase {
+	
+	public HomepageContainer homePageContainer ;
+	
+	@Given("^the user launch browser$")
+	public void the_user_launch_browser(){
+		
+		TestBase.initialization();	
+	}
+	
+	@When("^the user enter the url to the website$")
+	public void the_user_enter_the_url_to_the_website(){
+		
+		driver.get(prop.getProperty("url"));
+	}
+	
+	@Then("^the user land on homepage of the website$")
+	public void the_user_navigate_to_homepage_of_the_website() throws Exception{
+		
+		String title= driver.getTitle();
+		System.out.println(title);
+		Assert.assertEquals("Selenium Test", title);
+		driver.manage().timeouts().pageLoadTimeout(TestUtil.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
+		driver.close();
+	}
+	
+	@When("^the user click on Click to view Details button on customerlist homepage$")
+	public void the_user_click_on_John_Smith_button_on_customerlist_homepage() throws Throwable {
+		
+		homePageContainer = new HomepageContainer();
+		homePageContainer.clickOn_SteveJhones();
+	   
+	}
+	
+	@When("^I click on the '(.+)' button$")
+	public void I_click_on_the_updatename_button(String clickToViewDetails){
+		
+		homePageContainer = new HomepageContainer();
+
+		switch (clickToViewDetails)
+		{
+
+			case "JohnSmith":
+				homePageContainer.clickOn_JohnSmith();
+				
+				break;
+
+			case "Add_New_Address":
+				ActionHandler.click(myAccountContainer.addNewAddress);
+				break;
+
+			case "Add_New_Store":
+				ActionHandler.click(myAccountContainer.addNewStore);
+				break;
+
+			case "Update_frequency":
+				ActionHandler.click(myAccountContainer.updateFrequencyButton);
+				break;
+
+			case "Unsubscribe":
+				ActionHandler.click(myAccountContainer.unSubscribeButton);
+				break;
+
+			case "Search_For_Store":
+				BrowserDriver.wait(1000);
+				ActionHandler.waitForJSandJQueryToLoad(BrowserDriver.BROWSER_TYPE);
+				ActionHandler.scrollElementIntoView(myAccountContainer.searchForStore);
+				ActionHandler.click(myAccountContainer.searchForStore);
+				ActionHandler.waitForJSandJQueryToLoad(BrowserDriver.BROWSER_TYPE);
+				break;
+
+			case "Search_US_Store":
+				ActionHandler.waitForJSandJQueryToLoad(BrowserDriver.BROWSER_TYPE);
+				ActionHandler.scrollElementIntoView(myAccountContainer.searchUSStoreBtn);
+				ActionHandler.click(myAccountContainer.searchUSStoreBtn);
+				ActionHandler.waitForJSandJQueryToLoad(BrowserDriver.BROWSER_TYPE);
+				break;
+
+			case "I_Like_To_Register":
+				ActionHandler.click(checkoutContainer.checkoutRegisterRadio);
+				break;
+			case "Reset Filter":
+				ActionHandler.click(checkoutContainer.ResetFilter);
+				break;
+			default:
+				Assert.fail("unknown button: " + buttonName);
+		}
+	}
+
+
+	@Then("^It should display the customer's personal details to user$")
+	public void it_should_display_the_customer_s_personal_details_to_user() throws Throwable {
+		
+		WebElement cusName = driver.findElement(By.cssSelector("#root > div > div > div.col-md-6 > div > div > div.panel-heading > h3"));
+		String name= cusName.getText();
+		Assert.assertTrue(cusName.getText().contains("Steve Jones"));
+		WebElement customer = driver.findElement(By.cssSelector("#root > div > div > div.col-md-6 > div > div > div.panel-body"));
+		
+		Assert.assertTrue(customer.getText().contains("steven.jones@test.com"));
+		System.out.println(customer.getText());
+	   
+	}
+
+
+
+}

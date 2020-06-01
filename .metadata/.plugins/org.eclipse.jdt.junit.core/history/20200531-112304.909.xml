@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="TestRunner" project="Test" tests="7" started="7" failures="0" errors="0" ignored="0">
+  <testsuite name="runner.TestRunner" time="7.806">
+    <testsuite name="Feature: Customer access Creative technology HomePage" time="7.806">
+      <testsuite name="Scenario: Validate CustomerList HomePage test" time="3.966">
+        <testcase name="Given the user launch browser" classname="Scenario: Validate CustomerList HomePage test" time="3.821"/>
+        <testcase name="When the user enter the url to the website" classname="Scenario: Validate CustomerList HomePage test" time="0.145"/>
+        <testcase name="Then the user land on homepage of the website" classname="Scenario: Validate CustomerList HomePage test" time="0.0"/>
+      </testsuite>
+      <testsuite name="Scenario Outline: User validate customer details middle panel on Selenium test homepage" time="2.792">
+        <testsuite name="Examples:" time="2.792">
+          <testsuite name="| Jeff Bridges |  | Jeff Bridges |" time="2.792">
+            <testcase name="Given the user launch browser" classname="| Jeff Bridges |  | Jeff Bridges |" time="0.971"/>
+            <testcase name="And the user enter the url to the website" classname="| Jeff Bridges |  | Jeff Bridges |" time="1.765"/>
+            <testcase name="When the user get 'Jeff Bridges' text on customerlist homepage" classname="| Jeff Bridges |  | Jeff Bridges |" time="0.053"/>
+            <testcase name="And the user click on 'Jeff Bridges' button on customer list homepage" classname="| Jeff Bridges |  | Jeff Bridges |" time="0.003"/>
+          </testsuite>
+        </testsuite>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testrun>

@@ -1,0 +1,18 @@
+package containers;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+
+public class CustomerListContainer {
+	
+	@FindBy(how = How.CSS, using = "[data-test='1']")
+	public static WebElement click_to_view_details_JohnSmith;
+	
+	@FindBy(how = How.CSS, using = "[data-test='2']")
+	public static WebElement click_to_view_details_JeffBridges;
+	
+	@FindBy(how = How.CSS, using = "[data-test='3']")
+	public static WebElement click_to_view_details_SteveJones;
+
+}

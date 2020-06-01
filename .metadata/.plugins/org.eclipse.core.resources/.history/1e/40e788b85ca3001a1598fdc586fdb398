@@ -1,0 +1,53 @@
+Feature: Customer access Creative technology HomePage
+
+Scenario: Validate CustomerList HomePage test
+
+Given the user launch browser
+When the user enter the url to the website
+Then the user land on homepage of the website
+
+
+Scenario Outline: User validate customer's middllepanel name & personal details on homepage
+
+Given the user launch browser
+And the user enter the url to the website
+When the user click on '<ClickToViewDetails>' button on customer list homepage
+Then It should display the customer's '<personalDetails>' to user
+
+Examples:
+
+|ClickToViewDetails|	|personalDetails	 |
+|Jeff Bridges			 |	|Jeff Bridges			 |
+|John Smith	 |	|John Smith				|
+|Steve Jones |	|Steve Jones			|
+
+
+Scenario Outline: User validate customer's sidepanel name & personal details on homepage
+
+Given the user launch browser
+And the user enter the url to the website
+When the user get '<CustomerName>' text on customerlist homepage
+Then It should display the customer sidepanel '<PersonalDetails>' to user
+
+Examples:
+
+|CuctomerName|	|PersonalDetails	|
+|Jeff Bridges|	|Jeff Bridges			|
+|John Smith	 |	|John Smith				|
+|Steve Jones |	|Steve Jones			|
+
+
+#Scenario Outline: User validate the sidepanel's "Click to view details" button is enabled on homepage
+#
+#Given the user launch browser
+#And the user enter the url to the website
+#When the user verify the '<ClickToViewDetailsButton>' is enable on customer list homepage
+#Then the user should notify that the button is enabled for '<customer>' to the user
+#
+#Examples:
+#
+#|ClickToViewDetailsButton|
+#|John Smith							 |
+#|Jeff Bridges						 |
+#|Steve Jones						 |
+

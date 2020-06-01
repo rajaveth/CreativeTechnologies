@@ -1,0 +1,21 @@
+package handlers;
+
+import org.junit.Assert;
+import org.openqa.selenium.WebElement;
+
+public class ActionHandler {
+	
+	public static WebElement locateElement(String locator)
+	{
+		WebElement webElement = null;
+		
+		
+				webElement = BrowserDriver.getWait(driverType)
+						.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(locator)));
+				
+	
+
+		return webElement;
+	}
+
+}

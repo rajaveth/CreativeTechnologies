@@ -1,0 +1,8 @@
+Feature: Customer access Creative technology HomePage
+
+Scenario: Creative technology customer list HomePage
+
+Given the user launch browser
+When the user enter the url to the website
+#Then the user navigate to homepage of the website
+

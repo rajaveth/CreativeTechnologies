@@ -1,0 +1,40 @@
+Feature: Customer access Creative technology HomePage
+
+#Scenario: Validate CustomerList HomePage test
+#
+#Given the user launch browser
+#When the user enter the url to the website
+#Then the user land on homepage of the website
+
+
+Scenario Outline: User validate customer details middle panel on Selenium test homepage
+
+Given the user launch browser
+And the user enter the url to the website
+#When the user click on Click to view Details button on customerlist homepage
+When the user click on '<ClickToViewDetails>' button on customer list homepage
+Then It should display the customer's '<personalDetails>' to user
+
+Examples:
+
+|ClickToViewDetails|	|personalDetails	 |
+|Jeff Bridges			 |	|Jeff Bridges			 |
+
+
+
+
+Scenario Outline: User validate customer details side panel on homepage
+
+Given the user launch browser
+And the user enter the url to the website
+When the user get '<CustomerName>' text on customerlist homepage
+Then It should display the customer sidepanel '<PersonalDetails>' to user
+Examples:
+
+|CuctomerName|	|PersonalDetails|
+|Jeff Bridges|	|Jeff Bridges		|
+
+
+#|John Smith				 |	|John Smith				 |
+#|Steve Jones			 |	|Steve Jones			 |
+

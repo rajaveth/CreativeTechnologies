@@ -1,0 +1,25 @@
+package handlers;
+
+public class ActionHandler {
+	
+	/*public static void click(String locator, LOCATOR_TYPES locateby)
+	{
+		click(locator, locateby, BrowserDriver.BROWSER_TYPE);
+	}
+
+
+	public static void click(String locator, LOCATOR_TYPES locateby, BROWSER_TYPES driverType)
+	{
+		logger.info("Trying to locate the weblement by: " + locateby + "with locator:" + locator);
+		WebElement webElement = locateElement(locator, locateby, driverType);
+		if (webElement != null)
+		{
+			click(webElement, driverType);
+		}
+		else
+		{
+			Assert.fail("Unable to locate the weblement by: " + locateby + "with locator:" + locator);
+		}
+	}
+*/
+}

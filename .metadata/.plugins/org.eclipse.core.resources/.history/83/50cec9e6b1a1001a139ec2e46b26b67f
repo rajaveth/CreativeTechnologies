@@ -1,0 +1,30 @@
+package util;
+
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class BrowserDriver {
+	
+	private static WebDriverWait wait = null;
+	public static BROWSER_TYPES BROWSER_TYPE;
+	
+	public static WebDriverWait getWait(final BROWSER_TYPES browserType)
+	{
+		if (browserType == null)
+		{
+			BROWSER_TYPE = BROWSER_TYPES.ONE;
+		}
+		if (wait == null || WAIT_IN_SEC == 5)
+		{
+			wait = new WebDriverWait(getCurrentDriver(browserType), WAIT_IN_SEC);
+		}
+		return wait;
+	}
+
+	public static void setWait(final int waitTimeInSec)
+	{
+		WAIT_IN_SEC = waitTimeInSec;
+		wait = new WebDriverWait(getCurrentDriver(BROWSER_TYPE), WAIT_IN_SEC);
+
+	}
+
+}

@@ -1,0 +1,21 @@
+@browserclose
+Feature: Customer access Creative technology HomePage
+
+Scenario: Validate CustomerList HomePage test
+
+Given the user launch browser
+When the user enter the url to the website
+Then the user land on homepage of the website
+
+
+Scenario Outline: User get customer_list on Selenium test homepage
+
+Given the user launch browser
+And the user enter the url to the website
+When the user click on '<Click to view Details>' button on customerlist homepage
+Then It should display the customer's personal details to user
+
+Examples:
+
+|Click to view Details|
+|Jeff Bridges|

@@ -1,0 +1,7 @@
+Feature: Customer access Creative technology HomePage
+
+Scenario: Validate CustomerList HomePage test
+
+Given the user launch browser
+When the user enter the url to the website
+Then the user land on homepage of the website

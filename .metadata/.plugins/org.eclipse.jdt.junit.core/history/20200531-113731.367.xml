@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="TestRunner" project="Test" tests="8" started="8" failures="0" errors="0" ignored="0">
+  <testsuite name="runner.TestRunner" time="3.572">
+    <testsuite name="Feature: Customer access Creative technology HomePage" time="3.572">
+      <testsuite name="Scenario: Validate CustomerList HomePage test" time="1.178">
+        <testcase name="Given the user launch browser" classname="Scenario: Validate CustomerList HomePage test" time="1.049"/>
+        <testcase name="When the user enter the url to the website" classname="Scenario: Validate CustomerList HomePage test" time="0.129"/>
+        <testcase name="Then the user land on homepage of the website" classname="Scenario: Validate CustomerList HomePage test" time="0.0"/>
+      </testsuite>
+      <testsuite name="Scenario Outline: User validate customer details middle panel on Selenium test homepage" time="1.414">
+        <testsuite name="Examples:" time="1.414">
+          <testsuite name="| Jeff Bridges |  | Jeff Bridges |" time="1.414">
+            <testcase name="Given the user launch browser" classname="| Jeff Bridges |  | Jeff Bridges |" time="0.982"/>
+            <testcase name="And the user enter the url to the website" classname="| Jeff Bridges |  | Jeff Bridges |" time="0.362"/>
+            <testcase name="When the user get 'Jeff Bridges' text on customerlist homepage" classname="| Jeff Bridges |  | Jeff Bridges |" time="0.046"/>
+            <testcase name="And the user click on 'Jeff Bridges' button on customer list homepage" classname="| Jeff Bridges |  | Jeff Bridges |" time="0.022"/>
+            <testcase name="Then It should display the customer's personal details to user" classname="| Jeff Bridges |  | Jeff Bridges |" time="0.002"/>
+          </testsuite>
+        </testsuite>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testrun>
